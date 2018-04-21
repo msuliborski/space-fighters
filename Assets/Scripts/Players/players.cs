@@ -43,6 +43,7 @@ public class players : MonoBehaviour
     public float backgroundOffsetY;
 
     int r;
+    int i;
 
     GameObject go;
     private Rigidbody2D _rb;
@@ -92,12 +93,25 @@ public class players : MonoBehaviour
         textHP.text = HP + "/" + maxHP;
     }
     
+    void RandomPlayer(bool PlayerNumber)
+    {
+        i = Random.Range(0, 2);
+        switch(i)
+        {
+            case 0:
+                {
+
+                }break;
+        }
+    }
 
 
 
     // Use this for initialization
     void Start()
     {
+        
+
         source = GetComponent<AudioSource>();
         _rb = gameObject.GetComponent<Rigidbody2D>();
         _rb.gravityScale = 0f;

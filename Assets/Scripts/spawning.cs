@@ -18,12 +18,10 @@ public class spawning : MonoBehaviour {
     [SerializeField]
     int spawnRate = 30;
 
-    
-    enum enemies
-    {
-        enemy,
-        enemy_2
-    }
+    public AudioClip music;
+
+    private AudioSource source;
+
 
     int x;
     int t = 5;
@@ -31,11 +29,16 @@ public class spawning : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        source = GetComponent<AudioSource>();
+        source.Play();
 	}
 	
 	
 	void FixedUpdate () {
+        if(line.gameEnded)
+        {
+            source.Stop();
+        }
         if(t!=0)
         {
             t--;
