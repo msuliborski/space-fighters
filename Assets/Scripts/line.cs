@@ -15,11 +15,15 @@ public class line : MonoBehaviour
     [SerializeField]
     GameObject player_2;
 
+    public AudioClip gameOver;
+
     public GameObject player_1Wins_sprite;
     public GameObject player_2Wins_sprite;
     public GameObject noOneWins_sprite;
 
     public static bool gameEnded = false;
+
+    private AudioSource source;
 
     //bool gameEnded = spawner.gameEnded;
 
@@ -27,7 +31,7 @@ public class line : MonoBehaviour
 
     void Start()
     {
-
+        source = GetComponent<AudioSource>();
         player_1 = GameObject.Find("player_1");
         player_2 = GameObject.Find("player_2");
 
@@ -48,6 +52,7 @@ public class line : MonoBehaviour
     }
 
     void noOne_Wins(){
+        source.PlayOneShot(source.clip, 1f);
         noOneWins_sprite.SetActive(true);
     }
     void Player_1Wins(){
