@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class line : MonoBehaviour
 {
-
+    
+    
     [SerializeField]
     float vel = -5f;
 
@@ -14,29 +15,51 @@ public class line : MonoBehaviour
     [SerializeField]
     GameObject player_2;
 
+    public GameObject player_1Wins_sprite;
+    public GameObject player_2Wins_sprite;
+    public GameObject noOneWins_sprite;
+
+    public static bool gameEnded = false;
+
+    //bool gameEnded = spawner.gameEnded;
+
     // Use this for initialization
+
     void Start()
     {
+
+        player_1 = GameObject.Find("player_1");
+        player_2 = GameObject.Find("player_2");
+
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(vel, 0, 0);
+        player_1Wins_sprite.SetActive(false);
+        player_2Wins_sprite.SetActive(false);
+        noOneWins_sprite.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if ((player_1.transform.position.x == transform.position.x) && (player_2.transform.position.x == transform.position.x)) Draw();
-        if (player_1.transform.position.x == transform.position.x) Player_1Wins();
-        if (player_2.transform.position.x == transform.position.x) Player_2Wins();
+        if (!gameEnded){
+            if ((player_1.transform.position.x >= transform.position.x) && (player_2.transform.position.x >= transform.position.x)) {noOne_Wins(); handleGameEnd ();}
+            else if (player_1.transform.position.x >= transform.position.x) {Player_1Wins(); handleGameEnd ();}
+            else if (player_2.transform.position.x >= transform.position.x) {Player_2Wins(); handleGameEnd ();}
+        }
     }
-    void Draw()
-    {
 
+    void noOne_Wins(){
+        noOneWins_sprite.SetActive(true);
     }
-    void Player_1Wins()
-    {
+    void Player_1Wins(){
+        player_1Wins_sprite.SetActive(true);
+    }
+    void Player_2Wins(){
+        player_2Wins_sprite.SetActive(true);
+    }
 
+    void handleGameEnd (){
+        gameEnded = true;
+        
     }
-    void Player_2Wins()
-    {
 
-    }
 }
