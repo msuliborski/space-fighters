@@ -56,6 +56,7 @@ public class enemy : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         _targetTimer += Time.deltaTime;
+
         if (_targetTimer <= 0.7 && _targetPlayer) transform.position = Vector2.MoveTowards(transform.position, _targetPlayer.transform.position, 10 * Time.deltaTime);
         else
         {
@@ -66,7 +67,7 @@ public class enemy : MonoBehaviour {
                 _heading = _heading / (_heading.magnitude);
                 _rb.velocity = 2*_heading;
             }
-            //_rb.velocity = 2 * _heading;
+            _rb.velocity = 2 * _heading;
         }
 
     }
