@@ -10,7 +10,7 @@ public class players : MonoBehaviour
     public float HP = 100f;
     public float healthBarLength = 1;
 
-   // private Transform healthBar;
+    private Transform healthBar;
 
 
     
@@ -132,10 +132,10 @@ public class players : MonoBehaviour
         }
 
 
-        //healthBarLength = playerWidth/2;
-       // healthBar = this.gameObject.transform.FindChild("healthBar");
-        //healthBar.transform.localScale = new Vector3 (healthBarLength, 2, 1);
-       // healthBar.transform.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 10, gameObject.transform.position.z);
+        healthBarLength = 1;
+        healthBar = this.gameObject.transform.FindChild("healthBar");
+        healthBar.transform.localScale = new Vector3 (healthBarLength, healthBarLength/10, 1);
+        healthBar.transform.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + gameObject.transform.localScale.y/2 , gameObject.transform.position.z);
 
     }
 
