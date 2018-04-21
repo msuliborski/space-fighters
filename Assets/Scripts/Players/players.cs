@@ -48,7 +48,7 @@ public class players : MonoBehaviour
             Destroy(collision.gameObject);
             hp -= 10;
 
-            if (hp == 0) Destroy(gameObject);
+            if (hp == 0) gameObject.SetActive(false);
         }
         else if (collision.gameObject.transform.tag == "bullet")
         {
@@ -56,7 +56,7 @@ public class players : MonoBehaviour
             Destroy(collision.gameObject);
             hp -= 5;
 
-            if (hp == 0) Destroy(gameObject);
+            if (hp == 0) gameObject.SetActive(false);
         }
     }
 
