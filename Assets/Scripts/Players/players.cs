@@ -16,10 +16,10 @@ public class players : MonoBehaviour
 
     public GameObject instPoint;
 
-    private float playerWidth;
-    private float playerHeight;
-    private float bulletWidth;
-    private float bulletHeight;
+    public float playerWidth;
+    public float playerHeight;
+    public float bulletWidth;
+    public float bulletHeight;
 
     GameObject go;
     private Rigidbody2D _rb;
@@ -65,7 +65,7 @@ public class players : MonoBehaviour
         bulletHeight = bullet.transform.localScale.x;
         bulletWidth = bullet.transform.localScale.y;
 
-        instPoint.transform.localScale = new Vector2(_rb.transform.position.x + playerWidth + bulletWidth/2, _rb.transform.position.y);
+        instPoint.transform.position = new Vector2(_rb.transform.position.x + playerWidth/2 + bulletWidth/2, _rb.transform.position.y);
 
 
         if (playerNumber)
