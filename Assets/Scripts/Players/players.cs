@@ -16,6 +16,8 @@ public class players : MonoBehaviour
 
     public GameObject instPoint;
 
+    public GameObject explosion;
+
     public float playerWidth;
     public float playerHeight;
     public float bulletWidth;
@@ -34,6 +36,7 @@ public class players : MonoBehaviour
     {
         if (collision.gameObject.transform.tag == "enemy")
         {
+            Instantiate(explosion, collision.gameObject.transform.position, Quaternion.identity);
             Destroy(collision.gameObject);
             hp -= 10;
 
@@ -41,6 +44,7 @@ public class players : MonoBehaviour
         }
         else if (collision.gameObject.transform.tag == "bullet")
         {
+            Instantiate(explosion, collision.gameObject.transform.position, Quaternion.identity);
             Destroy(collision.gameObject);
             hp -= 5;
 

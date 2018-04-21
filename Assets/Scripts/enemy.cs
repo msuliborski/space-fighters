@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class enemy : MonoBehaviour {
 
-    
+    public GameObject explosion;
     public GameObject bullet;
     public float hp = 1;
 
@@ -25,6 +25,7 @@ public class enemy : MonoBehaviour {
     {
         if (collision.gameObject.transform.tag == "bullet")
         {
+            Instantiate(explosion, collision.gameObject.transform.position, Quaternion.identity);
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }
