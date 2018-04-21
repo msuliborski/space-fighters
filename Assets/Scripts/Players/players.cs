@@ -77,22 +77,6 @@ public class players : MonoBehaviour
     }
 
 
-    public void addHealth(int val) {
-        HP += val;
-       
-        if (HP < 0)
-            HP = 0;
-       
-        if (HP > maxHP)
-            HP = maxHP;
-       
-        if(maxHP < 1)
-            maxHP = 1;
-       
-        textHP.text = HP + "/" + maxHP;
-    }
-    
-
 
 
     // Use this for initialization
@@ -135,8 +119,8 @@ public class players : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerNumber) textHP.text = "Player 1: " + HP + " / " + maxHP;
-        else textHP.text = "Player 2: " + HP + " / " + maxHP;
+        if (playerNumber) textHP.text = "   Player 1: " + HP + " / " + maxHP;
+        else textHP.text = "   Player 2: " + HP + " / " + maxHP;
 
         if (((transform.position.y + playerHeight / 2) >= 4.5) || ((transform.position.y - playerHeight / 2) <= -4.5)) _rb.velocity = new Vector2(_rb.velocity.x, 0);
 
