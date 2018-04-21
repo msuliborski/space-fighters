@@ -37,17 +37,15 @@ public class enemy : MonoBehaviour {
         _player1 = GameObject.Find("player_1");
         _player2 = GameObject.Find("player_2");
 
-        if (_player1)
-
-            if (_player1 && _player2)
-            {
-                _dist1 = Vector2.Distance(_player1.transform.position, transform.position);
-                _dist2 = Vector2.Distance(_player2.transform.position, transform.position);
-                if (_dist1 <= _dist2) _targetPlayer = _player1;
-                else _targetPlayer = _player2;
-            }
-            else if (_player1) _targetPlayer = _player1;
+        if (_player1 && _player2)
+        {
+            _dist1 = Vector2.Distance(_player1.transform.position, transform.position);
+            _dist2 = Vector2.Distance(_player2.transform.position, transform.position);
+            if (_dist1 <= _dist2) _targetPlayer = _player1;
             else _targetPlayer = _player2;
+        }
+        else if (_player1) _targetPlayer = _player1;
+        else _targetPlayer = _player2;
 
 
             
@@ -58,7 +56,8 @@ public class enemy : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         _targetTimer += Time.deltaTime;
-        if (_targetTimer <= 0.7) transform.position = Vector2.MoveTowards(transform.position, _targetPlayer.transform.position, 10 * Time.deltaTime);
+
+        if (_targetTimer <= 0.7 && _targetPlayer) transform.position = Vector2.MoveTowards(transform.position, _targetPlayer.transform.position, 10 * Time.deltaTime);
         else
         {
             if (!_endTimer)

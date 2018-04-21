@@ -22,7 +22,7 @@ public class players : MonoBehaviour
 
     public GameObject BG;
 
-    public AudioClip pju; 
+    public AudioClip pju;
 
     public float playerWidth;
     public float playerHeight;
@@ -51,7 +51,7 @@ public class players : MonoBehaviour
             Destroy(collision.gameObject);
             hp -= 10;
 
-            if (hp == 0) Destroy(gameObject);
+            if (hp == 0) gameObject.SetActive(false);
         }
         else if (collision.gameObject.transform.tag == "bullet")
         {
@@ -59,7 +59,7 @@ public class players : MonoBehaviour
             Destroy(collision.gameObject);
             hp -= 5;
 
-            if (hp == 0) Destroy(gameObject);
+            if (hp == 0) gameObject.SetActive(false);
         }
     }
 
@@ -72,7 +72,11 @@ public class players : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+
         source = GetComponent<AudioSource>();
+
+        //transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+
         _rb = gameObject.GetComponent<Rigidbody2D>();
         _rb.gravityScale = 0f;
         _rb.isKinematic = true;
@@ -86,22 +90,22 @@ public class players : MonoBehaviour
         backgroundOffsetX = background.GetComponent<MeshCollider>().transform.position.x;
         backgroundOffsetY = background.GetComponent<MeshCollider>().transform.position.y;
 
-        instPoint.transform.position = new Vector2(_rb.transform.position.x + playerWidth + bulletWidth, _rb.transform.position.y);
+        instPoint.transform.position = new Vector2(_rb.transform.position.x + playerWidth, _rb.transform.position.y);
         
         if (playerNumber)
         {
             upKey = KeyCode.W;
             downKey = KeyCode.S;
-            leftKey = KeyCode.A;
-            rightKey = KeyCode.D;
+            leftKey = KeyCode.D; // XD
+            rightKey = KeyCode.A; // XD
             fireKey = KeyCode.T;
         }
         else
         {
             upKey = KeyCode.UpArrow;
             downKey = KeyCode.DownArrow;
-            leftKey = KeyCode.LeftArrow;
-            rightKey = KeyCode.RightArrow;
+            leftKey = KeyCode.RightArrow; // XD
+            rightKey = KeyCode.LeftArrow; // XD
             fireKey = KeyCode.Period;
         }
     }
@@ -122,10 +126,10 @@ public class players : MonoBehaviour
         else if (Input.GetKey(downKey) && ((transform.position.y - playerHeight / 2) > -4.5)) _rb.velocity = new Vector3(_rb.velocity.x, -vel, 0);
 
         if (Input.GetKeyUp(leftKey)) _rb.velocity = new Vector3(0, _rb.velocity.y, 0);
-        else if (Input.GetKey(leftKey) && ((transform.position.x + playerWidth / 2) < 8)) _rb.velocity = new Vector3(-vel, _rb.velocity.y, 0);
+        else if (Input.GetKey(leftKey) && ((transform.position.x + playerWidth / 2) < 8)) _rb.velocity = new Vector3(vel, _rb.velocity.y, 0);
 
         if (Input.GetKeyUp(rightKey)) _rb.velocity = new Vector3(0, _rb.velocity.y, 0);
-        else if (Input.GetKey(rightKey) && ((transform.position.x - playerWidth / 2) > -8)) _rb.velocity = new Vector3(vel, _rb.velocity.y, 0);
+        else if (Input.GetKey(rightKey) && ((transform.position.x - playerWidth / 2) > -8)) _rb.velocity = new Vector3(-vel, _rb.velocity.y, 0);
 
         if (Input.GetKeyDown(fireKey))
         {

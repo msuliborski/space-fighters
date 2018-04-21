@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class spawning : MonoBehaviour {
 
+    public bool gameEnded = false;
+
     [SerializeField]
     GameObject enemy;
 
@@ -16,6 +18,7 @@ public class spawning : MonoBehaviour {
     [SerializeField]
     int spawnRate = 30;
 
+    
     enum enemies
     {
         enemy,
@@ -39,7 +42,7 @@ public class spawning : MonoBehaviour {
         }
         else
         {
-            Spawn();
+            if (!line.gameEnded) Spawn();
             t = spawnRate;
         }
 	}
