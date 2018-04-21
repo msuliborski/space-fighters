@@ -38,12 +38,6 @@ public class player_2 : MonoBehaviour {
         if (Input.GetKey(KeyCode.RightArrow)) _rb.velocity = new Vector3(vel, _rb.velocity.y, 0);
         if (Input.GetKeyUp(KeyCode.RightArrow)) _rb.velocity = new Vector3(0, _rb.velocity.y, 0);
 
-        if (Input.GetKeyDown(KeyCode.Comma))
-        {
-            go = Instantiate(bullet, instPoint_2.transform.position, Quaternion.identity);
-            go.GetComponent<Rigidbody2D>().velocity = vel * Vector2.left;
-            Destroy(go, 3f);
-        }
         if (Input.GetKeyDown(KeyCode.Period))
         {
             go = Instantiate(bullet, instPoint_2.transform.position, Quaternion.identity);

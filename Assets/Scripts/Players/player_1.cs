@@ -37,12 +37,6 @@ public class player_1 : MonoBehaviour {
         if (Input.GetKey(KeyCode.D)) _rb.velocity = new Vector3(vel, _rb.velocity.y, 0);
         if (Input.GetKeyUp(KeyCode.D)) _rb.velocity = new Vector3(0, _rb.velocity.y, 0);
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            go = Instantiate(bullet, instPoint_1.transform.position, Quaternion.identity);
-            go.GetComponent<Rigidbody2D>().velocity = vel * Vector2.left;
-            Destroy(go, 3f);
-        }
         if (Input.GetKeyDown(KeyCode.T))
         {
             go = Instantiate(bullet, instPoint_1.transform.position, Quaternion.identity);
