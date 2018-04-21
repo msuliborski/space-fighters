@@ -74,6 +74,15 @@ public class players : MonoBehaviour
             HP -= 5;
             if (HP <= 0) gameObject.SetActive(false);
         }
+        else if (collision.gameObject.transform.tag == "asteroid")
+        {
+            Instantiate(explosion, collision.gameObject.transform.position, Quaternion.identity);
+            source.clip = jeb;
+            source.PlayOneShot(source.clip, 1f);
+            Destroy(collision.gameObject);
+            HP -= 20;
+            if (HP <= 0) gameObject.SetActive(false);
+        }
     }
 
 
@@ -133,7 +142,7 @@ public class players : MonoBehaviour
 
 
         healthBarLength = 1;
-        healthBar = this.gameObject.transform.FindChild("healthBar");
+        healthBar = this.gameObject.transform.Find("healthBar");
         healthBar.transform.localScale = new Vector3 (healthBarLength, healthBarLength/10, 1);
         healthBar.transform.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + gameObject.transform.localScale.y/2 , gameObject.transform.position.z);
 
