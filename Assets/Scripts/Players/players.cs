@@ -65,9 +65,11 @@ public class players : MonoBehaviour
         _rb.gravityScale = 0f;
         _rb.isKinematic = true;
         playerWidth = _rb.transform.localScale.x;
-        playerHeight = _rb.transform.localScale.y;
-        bulletHeight = bullet.transform.localScale.x;
-        bulletWidth = bullet.transform.localScale.y;
+        playerWidth = GetComponent<Collider2D>().bounds.size.x;
+        playerHeight = GetComponent<Collider2D>().bounds.size.y;
+        bulletHeight = bullet.GetComponent<Collider2D>().bounds.size.x;
+        bulletWidth = bullet.GetComponent<Collider2D>().bounds.size.y;
+        
 
         instPoint.transform.position = new Vector2(_rb.transform.position.x + playerWidth/2 + bulletWidth/2, _rb.transform.position.y);
 
