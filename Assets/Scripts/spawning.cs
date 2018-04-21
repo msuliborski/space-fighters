@@ -27,7 +27,7 @@ public class spawning : MonoBehaviour {
         {
             t--;
         }
-        if (t==0)
+        else
         {
             Spawn();
             t = spawnRate;

@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class enemy : MonoBehaviour {
 
-    [SerializeField]
-    GameObject bullet;
-
-    [SerializeField]
-    float hp = 1;
+    
+    public GameObject bullet;
+    public float hp = 1;
 
     void OnCollisionEnter2D(Collision2D collision)
     {
