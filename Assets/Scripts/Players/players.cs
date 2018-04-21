@@ -6,7 +6,14 @@ public class players : MonoBehaviour
 {
 
     
-    public float hp = 100f;
+    public float maxHP = 100f;
+    public float HP = 100f;
+    public float healthBarLength = 1;
+
+    private Transform healthBar;
+
+
+    
     
     public float vel = 5f;
 
@@ -49,22 +56,33 @@ public class players : MonoBehaviour
         {
             Instantiate(explosion, collision.gameObject.transform.position, Quaternion.identity);
             Destroy(collision.gameObject);
-            hp -= 10;
-
-            if (hp == 0) Destroy(gameObject);
+            HP -= 10;
+            if (HP <= 0) gameObject.SetActive(false);
         }
         else if (collision.gameObject.transform.tag == "bullet")
         {
             Instantiate(explosion, collision.gameObject.transform.position, Quaternion.identity);
             Destroy(collision.gameObject);
-            hp -= 5;
-
-            if (hp == 0) Destroy(gameObject);
+            HP -= 5;
+            if (HP <= 0) gameObject.SetActive(false);
         }
     }
 
-   
 
+    public void addHealth(int val) {
+        HP += val;
+       
+        if (HP < 0)
+            HP = 0;
+       
+        if (HP > maxHP)
+            HP = maxHP;
+       
+        if(maxHP < 1)
+            maxHP = 1;
+       
+        healthBarLength = (playerWidth/2) * (HP /(float)maxHP);
+    }
     
 
 
@@ -105,12 +123,16 @@ public class players : MonoBehaviour
             rightKey = KeyCode.LeftArrow;
             fireKey = KeyCode.Period;
         }
+
+
+        healthBarLength = playerWidth/2;
+        healthBar = this.gameObject.transform.FindChild("healthBar");
+
     }
 
     // Update is called once per frame
     void Update()
     {
-
 
         if (((transform.position.y + playerHeight / 2) >= 4.5) || ((transform.position.y - playerHeight / 2) <= -4.5)) _rb.velocity = new Vector2(_rb.velocity.x, 0);
 

@@ -20,13 +20,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4071845286799166}
   - component: {fileID: 212782040168725444}
+  - component: {fileID: 114475429974701798}
   m_Layer: 0
   m_Name: p1_win
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1740583217136920
 GameObject:
   m_ObjectHideFlags: 0
@@ -52,6 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4293922921573378}
   - component: {fileID: 212033068771173440}
+  - component: {fileID: 114190634188083444}
   m_Layer: 0
   m_Name: gameOver
   m_TagString: Untagged
@@ -68,6 +70,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4999439777308426}
   - component: {fileID: 212494362814821142}
+  - component: {fileID: 114622716563478036}
   m_Layer: 0
   m_Name: p2_win
   m_TagString: Untagged
@@ -130,6 +133,39 @@ Transform:
   m_Father: {fileID: 4626925187600710}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114190634188083444
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1850335278959684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72cc1b6dca17ee24fa345644865f1ec7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114475429974701798
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1458785165060360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72cc1b6dca17ee24fa345644865f1ec7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114622716563478036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1858400756843398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72cc1b6dca17ee24fa345644865f1ec7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212004009338272710
 SpriteRenderer:
   m_ObjectHideFlags: 1

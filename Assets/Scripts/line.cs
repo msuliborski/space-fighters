@@ -41,7 +41,7 @@ public class line : MonoBehaviour
     void Update()
     {
         if (!gameEnded){
-            if ((player_1.transform.position.x >= transform.position.x) && (player_2.transform.position.x >= transform.position.x)) {noOne_Wins(); handleGameEnd ();}
+            if (!player_1.active && !player_2.active) {noOne_Wins(); handleGameEnd ();}
             else if (player_1.transform.position.x >= transform.position.x) {Player_1Wins(); handleGameEnd ();}
             else if (player_2.transform.position.x >= transform.position.x) {Player_2Wins(); handleGameEnd ();}
         }
