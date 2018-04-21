@@ -72,8 +72,15 @@ public class players : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+<<<<<<< HEAD
+        source = GetComponent<AudioSource>();
+=======
+
         source = GetComponent<AudioSource>();
 
+        //transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+
+>>>>>>> e7037389599b11ea39ad389315434a9d75aa0f8f
         _rb = gameObject.GetComponent<Rigidbody2D>();
         _rb.gravityScale = 0f;
         _rb.isKinematic = true;
