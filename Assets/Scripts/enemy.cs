@@ -2,30 +2,47 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemy : MonoBehaviour {
+public class enemy : MonoBehaviour
+{
 
     public GameObject explosion;
     public GameObject bullet;
     public float hp = 1;
-    public AudioClip jeb;
 
-    private GameObject _player1;
-    private GameObject _player2;
-    private GameObject _targetPlayer;
+    public GameObject _player1;
+    public GameObject _player2;
+    public GameObject _targetPlayer;
     private Rigidbody2D _rb;
 
     private float _dist1;
     private float _dist2;
-    private AudioSource source;
+
     private float _targetTimer = 0;
     private bool _endTimer = false;
     private Vector2 _heading;
+    private AudioSource source;
+    public AudioClip jeb;
 
-   void Start ()
+
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        source = GetComponent<AudioSource>();
+        if (collision.gameObject.transform.tag == "bullet")
+        {
+            source.PlayOneShot(source.clip);
+            Instantiate(explosion, collision.gameObject.transform.position, Quaternion.identity);
+            Destroy(collision.gameObject);
+            hp--;
+            if (hp == 0) gameObject.SetActive(false);
+            Debug.Log("c'kurwozaury");
+        }
+    }
+
+    // Use this for initialization
+    void Start()
+    {
         _player1 = GameObject.Find("player_1");
         _player2 = GameObject.Find("player_2");
+        source = GetComponent<AudioSource>();
 
         if (_player1 && _player2)
         {
@@ -37,42 +54,38 @@ public class enemy : MonoBehaviour {
         else if (_player1) _targetPlayer = _player1;
         else _targetPlayer = _player2;
 
+        _rb = GetComponent<Rigidbody2D>();
 
-            
-        
 
-	}
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.transform.tag == "bullet")
-        {
-            source.PlayOneShot(source.clip);
-            Instantiate(explosion, collision.gameObject.transform.position, Quaternion.identity);
-            Destroy(collision.gameObject);
-            Destroy(gameObject, 1f);
-        }
+
     }
 
-    // Use this for initialization
-    
-	
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update()
+    {
         _targetTimer += Time.deltaTime;
-
-        if (_targetTimer <= 0.7 && _targetPlayer) transform.position = Vector2.MoveTowards(transform.position, _targetPlayer.transform.position, 10 * Time.deltaTime);
-        else
+        if(_targetPlayer)
         {
-            if (!_endTimer)
+            if (_targetTimer <= 0.7) transform.position = Vector2.MoveTowards(transform.position, _targetPlayer.transform.position, 10 * Time.deltaTime);
+            else
             {
-                _endTimer = true;
-                _heading = _targetPlayer.transform.position - transform.position;
-                _heading = _heading / (_heading.magnitude);
-                _rb.velocity = 2*_heading;
+                if (!_endTimer)
+                {
+                    _endTimer = true;
+                    _heading = _targetPlayer.transform.position - transform.position;
+                    _heading.Normalize();
+                    Debug.Log(_heading.x);
+                    Debug.Log(_heading.y);
+                    Debug.Log(_rb.velocity);
+
+                }
+
+                _rb.velocity = new Vector2(5 * _heading.x, 5 * _heading.y);
             }
-            _rb.velocity = 2 * _heading;
+           
         }
+        else _rb.velocity = new Vector2(5.0f, 0f);
 
     }
 }

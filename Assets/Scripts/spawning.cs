@@ -58,7 +58,6 @@ public class spawning : MonoBehaviour {
         {
             go = Instantiate(enemy_2, transform.position, Quaternion.identity);
         }
-        go.GetComponent<Rigidbody2D>().velocity = new Vector3(-vel, 0, 0);
         Destroy(go, 5f);
     }
 }
