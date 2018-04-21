@@ -180,7 +180,7 @@ MonoBehaviour:
   vel: 5
   playerNumber: 1
   bullet: {fileID: 1491891074948616, guid: 65cf876151faefb4d8645404fcfb5824, type: 2}
-  instPoint: {fileID: 1498834388394754}
+  instPoint: {fileID: 1603373543096154}
 --- !u!212 &212225425962322640
 SpriteRenderer:
   m_ObjectHideFlags: 1

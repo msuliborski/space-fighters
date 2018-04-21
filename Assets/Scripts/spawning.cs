@@ -8,11 +8,21 @@ public class spawning : MonoBehaviour {
     GameObject enemy;
 
     [SerializeField]
+    GameObject enemy_2;
+
+    [SerializeField]
     float vel = 5;
 
     [SerializeField]
     int spawnRate = 30;
 
+    enum enemies
+    {
+        enemy,
+        enemy_2
+    }
+
+    int x;
     int t = 5;
     GameObject go;
 
@@ -35,8 +45,16 @@ public class spawning : MonoBehaviour {
 	}
     void Spawn()
     {
+        x = Random.Range(0, 50);
         transform.position = new Vector3(12f, Random.Range(-3.5f, 3.5f), 0);
-        go = Instantiate(enemy, transform.position, Quaternion.identity);
+        if (x % 2 == 0)
+        {
+            go = Instantiate(enemy, transform.position, Quaternion.identity);
+        }
+        if (x % 2 == 1)
+        {
+            go = Instantiate(enemy_2, transform.position, Quaternion.identity);
+        }
         go.GetComponent<Rigidbody2D>().velocity = new Vector3(-vel, 0, 0);
         Destroy(go, 5f);
     }
