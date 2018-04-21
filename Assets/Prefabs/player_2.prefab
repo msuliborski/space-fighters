@@ -149,8 +149,8 @@ MonoBehaviour:
   hp: 100
   vel: 5
   playerNumber: 0
-  bullet: {fileID: 0}
-  instPoint: {fileID: 1491891074948616, guid: 65cf876151faefb4d8645404fcfb5824, type: 2}
+  bullet: {fileID: 1491891074948616, guid: 65cf876151faefb4d8645404fcfb5824, type: 2}
+  instPoint: {fileID: 1877532063384548}
 --- !u!212 &212381874482170448
 SpriteRenderer:
   m_ObjectHideFlags: 1
