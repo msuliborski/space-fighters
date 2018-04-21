@@ -22,6 +22,8 @@ public class players : MonoBehaviour
 
     public GameObject BG;
 
+    public AudioClip pju; 
+
     public float playerWidth;
     public float playerHeight;
     public float bulletWidth;
@@ -33,6 +35,7 @@ public class players : MonoBehaviour
 
     GameObject go;
     private Rigidbody2D _rb;
+    private AudioSource source;
 
     KeyCode upKey;
     KeyCode downKey;
@@ -69,6 +72,7 @@ public class players : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        source = GetComponent<AudioSource>();
         _rb = gameObject.GetComponent<Rigidbody2D>();
         _rb.gravityScale = 0f;
         _rb.isKinematic = true;
@@ -127,6 +131,7 @@ public class players : MonoBehaviour
         {
             go = Instantiate(bullet, instPoint.transform.position, Quaternion.identity);
             go.GetComponent<Rigidbody2D>().velocity = vel* 1.5f * Vector2.right;
+            source.PlayOneShot(pju, 1f);
             Destroy(go, 3f);
         }
 
