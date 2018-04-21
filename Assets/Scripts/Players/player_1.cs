@@ -16,6 +16,9 @@ public class player_1 : MonoBehaviour {
     [SerializeField]
     GameObject instPoint_1;
 
+    [SerializeField]
+    GameObject light;
+
     GameObject go;
     private Rigidbody2D _rb;
     // Use this for initialization
@@ -42,9 +45,15 @@ public class player_1 : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.T))
         {
+            light.transform.position = instPoint_1.transform.position;
+            Invoke("StopLight", 0.3f);
             go = Instantiate(bullet, instPoint_1.transform.position, Quaternion.identity);
             go.GetComponent<Rigidbody2D>().velocity = vel * Vector2.right;
             Destroy(go, 3f);
         }
+    }
+    void StopLight()
+    {
+        light.transform.position = new Vector3(0, 20, 0);
     }
 }
