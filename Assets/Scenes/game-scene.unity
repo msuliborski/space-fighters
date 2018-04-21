@@ -476,6 +476,91 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3713004db18fa33489e7b12d0b7b1f28, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &816236534 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1647367207551146, guid: 9227daa0813fe0b49a5b71688df16f29,
+    type: 2}
+  m_PrefabInternal: {fileID: 1533122867}
+--- !u!82 &816236540
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 816236534}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 03c73b65f6ac71d4697075487571945f, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &930398954 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1850335278959684, guid: 86a941775c0468c4dbc7f20f3ab6e185,
@@ -837,6 +922,11 @@ Prefab:
       propertyPath: noOneWins_sprite
       value: 
       objectReference: {fileID: 930398954}
+    - target: {fileID: 114990256583954112, guid: 9227daa0813fe0b49a5b71688df16f29,
+        type: 2}
+      propertyPath: gameOver
+      value: 
+      objectReference: {fileID: 8300000, guid: 03c73b65f6ac71d4697075487571945f, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9227daa0813fe0b49a5b71688df16f29, type: 2}
   m_IsPrefabParent: 0
