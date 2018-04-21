@@ -24,6 +24,8 @@ public class players : MonoBehaviour
 
     public AudioClip pju;
 
+    public AudioClip jeb;
+
     public float playerWidth;
     public float playerHeight;
     public float bulletWidth;
@@ -32,6 +34,8 @@ public class players : MonoBehaviour
     public float backgroundHeight;
     public float backgroundOffsetX;
     public float backgroundOffsetY;
+
+    int r;
 
     GameObject go;
     private Rigidbody2D _rb;
@@ -48,6 +52,8 @@ public class players : MonoBehaviour
         if (collision.gameObject.transform.tag == "enemy")
         {
             Instantiate(explosion, collision.gameObject.transform.position, Quaternion.identity);
+            source.clip = jeb;
+            source.PlayOneShot(source.clip, 1f);
             Destroy(collision.gameObject);
             hp -= 10;
 
@@ -56,6 +62,8 @@ public class players : MonoBehaviour
         else if (collision.gameObject.transform.tag == "bullet")
         {
             Instantiate(explosion, collision.gameObject.transform.position, Quaternion.identity);
+            source.clip = jeb;
+            source.PlayOneShot(source.clip, 1f);
             Destroy(collision.gameObject);
             hp -= 5;
 
@@ -74,7 +82,6 @@ public class players : MonoBehaviour
     {
 
         source = GetComponent<AudioSource>();
-
         //transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
 
         _rb = gameObject.GetComponent<Rigidbody2D>();
@@ -135,7 +142,8 @@ public class players : MonoBehaviour
         {
             go = Instantiate(bullet, instPoint.transform.position, Quaternion.identity);
             go.GetComponent<Rigidbody2D>().velocity = vel* 1.5f * Vector2.right;
-            source.PlayOneShot(pju, 1f);
+            source.clip = pju;
+            source.PlayOneShot(source.clip, 1f);
             Destroy(go, 3f);
         }
 
