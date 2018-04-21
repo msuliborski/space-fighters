@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,8 +8,9 @@ public class players : MonoBehaviour
     
     public float maxHP = 100f;
     public float HP = 100f;
+    public float healthBarLength = 1;
 
-    public Text textHP;
+    private Transform healthBar;
 
 
     
@@ -75,6 +75,15 @@ public class players : MonoBehaviour
             HP -= 5;
             if (HP <= 0) gameObject.SetActive(false);
         }
+        else if (collision.gameObject.transform.tag == "asteroid")
+        {
+            Instantiate(explosion, collision.gameObject.transform.position, Quaternion.identity);
+            source.clip = jeb;
+            source.PlayOneShot(source.clip, 1f);
+            Destroy(collision.gameObject);
+            HP -= 20;
+            if (HP <= 0) gameObject.SetActive(false);
+        }
     }
 
 
@@ -90,7 +99,7 @@ public class players : MonoBehaviour
         if(maxHP < 1)
             maxHP = 1;
        
-        textHP.text = HP + "/" + maxHP;
+        healthBarLength = (playerWidth/2) * (HP /(float)maxHP);
     }
     
     void RandomPlayer(bool PlayerNumber)
@@ -144,13 +153,18 @@ public class players : MonoBehaviour
             rightKey = KeyCode.LeftArrow;
             fireKey = KeyCode.Period;
         }
+
+
+        healthBarLength = 1;
+        healthBar = this.gameObject.transform.Find("healthBar");
+        healthBar.transform.localScale = new Vector3 (healthBarLength, healthBarLength/10, 1);
+        healthBar.transform.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + gameObject.transform.localScale.y/2 , gameObject.transform.position.z);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (playerNumber) textHP.text = "Player 1: " + HP + " / " + maxHP;
-        else textHP.text = "Player 2: " + HP + " / " + maxHP;
 
         if (((transform.position.y + playerHeight / 2) >= 4.5) || ((transform.position.y - playerHeight / 2) <= -4.5)) _rb.velocity = new Vector2(_rb.velocity.x, 0);
 
