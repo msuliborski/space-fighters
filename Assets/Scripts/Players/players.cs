@@ -93,16 +93,16 @@ public class players : MonoBehaviour
         {
             upKey = KeyCode.W;
             downKey = KeyCode.S;
-            leftKey = KeyCode.A;
-            rightKey = KeyCode.D;
+            leftKey = KeyCode.D;
+            rightKey = KeyCode.A;
             fireKey = KeyCode.T;
         }
         else
         {
             upKey = KeyCode.UpArrow;
             downKey = KeyCode.DownArrow;
-            leftKey = KeyCode.LeftArrow;
-            rightKey = KeyCode.RightArrow;
+            leftKey = KeyCode.RightArrow;
+            rightKey = KeyCode.LeftArrow;
             fireKey = KeyCode.Period;
         }
     }
@@ -123,10 +123,10 @@ public class players : MonoBehaviour
         else if (Input.GetKey(downKey) && ((transform.position.y - playerHeight / 2) > -4.5)) _rb.velocity = new Vector3(_rb.velocity.x, -vel, 0);
 
         if (Input.GetKeyUp(leftKey)) _rb.velocity = new Vector3(0, _rb.velocity.y, 0);
-        else if (Input.GetKey(leftKey) && ((transform.position.x + playerWidth / 2) < 8)) _rb.velocity = new Vector3(-vel, _rb.velocity.y, 0);
+        else if (Input.GetKey(leftKey) && ((transform.position.x + playerWidth / 2) < 8)) _rb.velocity = new Vector3(vel, _rb.velocity.y, 0);
 
         if (Input.GetKeyUp(rightKey)) _rb.velocity = new Vector3(0, _rb.velocity.y, 0);
-        else if (Input.GetKey(rightKey) && ((transform.position.x - playerWidth / 2) > -8)) _rb.velocity = new Vector3(vel, _rb.velocity.y, 0);
+        else if (Input.GetKey(rightKey) && ((transform.position.x - playerWidth / 2) > -8)) _rb.velocity = new Vector3(-vel, _rb.velocity.y, 0);
 
         if (Input.GetKeyDown(fireKey))
         {
