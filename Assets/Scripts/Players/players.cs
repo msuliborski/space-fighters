@@ -73,7 +73,7 @@ public class players : MonoBehaviour
     void Start()
     {
         source = GetComponent<AudioSource>();
-
+        
         _rb = gameObject.GetComponent<Rigidbody2D>();
         _rb.gravityScale = 0f;
         _rb.isKinematic = true;
