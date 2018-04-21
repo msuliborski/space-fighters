@@ -141,10 +141,7 @@ public class players : MonoBehaviour
         }
 
 
-        healthBarLength = 1;
-        healthBar = this.gameObject.transform.Find("healthBar");
-        healthBar.transform.localScale = new Vector3 (healthBarLength, healthBarLength/10, 1);
-        healthBar.transform.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + gameObject.transform.localScale.y/2 , gameObject.transform.position.z);
+       
 
     }
 

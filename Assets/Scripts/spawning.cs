@@ -47,7 +47,7 @@ public class spawning : MonoBehaviour {
 	
 	
 	void FixedUpdate () {
-        if (lineObject.transform.position.x > 150 && lineObject.transform.position.x < 75)
+        if (lineObject.transform.position.x > 150 || lineObject.transform.position.x < 75)
         {
             if (timerEnemies != 0)
             {
@@ -77,7 +77,7 @@ public class spawning : MonoBehaviour {
             transform.position = new Vector3(12f, Random.Range(-3.5f, 3.5f), 0);
             go = Instantiate(enemy, transform.position, Quaternion.identity);
         }
-        else if (lineObject.transform.position.x > 200)
+        else if (lineObject.transform.position.x > 150 || lineObject.transform.position.x < 75)
         {
             x = Random.Range(0, 2);
             transform.position = new Vector3(12f, Random.Range(-3.5f, 3.5f), 0);
