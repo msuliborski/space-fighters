@@ -15,6 +15,6 @@ public class explosion : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         _explosionTimer += Time.deltaTime;
-        if (_explosionTimer >= 0.6) Destroy(gameObject);
+        if (_explosionTimer >= 0.8) Destroy(gameObject);
 	}
 }

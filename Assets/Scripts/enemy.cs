@@ -37,11 +37,21 @@ public class enemy : MonoBehaviour {
         _player1 = GameObject.Find("player_1");
         _player2 = GameObject.Find("player_2");
 
-        _dist1 = Vector2.Distance(_player1.transform.position, transform.position);
-        _dist2 = Vector2.Distance(_player2.transform.position, transform.position);
+        if (_player1)
 
-        if (_dist1 <= _dist2) _targetPlayer = _player1;
-        else _targetPlayer = _player2;
+            if (_player1 && _player2)
+            {
+                _dist1 = Vector2.Distance(_player1.transform.position, transform.position);
+                _dist2 = Vector2.Distance(_player2.transform.position, transform.position);
+                if (_dist1 <= _dist2) _targetPlayer = _player1;
+                else _targetPlayer = _player2;
+            }
+            else if (_player1) _targetPlayer = _player1;
+            else _targetPlayer = _player2;
+
+
+            
+        
 
 	}
 	
