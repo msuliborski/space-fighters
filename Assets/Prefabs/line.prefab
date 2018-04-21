@@ -74,9 +74,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vel: -5
-  player_1: {fileID: 1498834388394754, guid: 3713004db18fa33489e7b12d0b7b1f28, type: 2}
-  player_2: {fileID: 1684381890700840, guid: 26f01fb7267dc1e45a411b4391fbe943, type: 2}
-  GO: {fileID: 0}
+  player_1: {fileID: 0}
+  player_2: {fileID: 0}
+  player_1Wins_sprite: {fileID: 0}
+  player_2Wins_sprite: {fileID: 0}
+  noOneWins_sprite: {fileID: 0}
 --- !u!212 &212074852056640862
 SpriteRenderer:
   m_ObjectHideFlags: 1
