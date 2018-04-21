@@ -7,6 +7,7 @@ public class enemy : MonoBehaviour {
     public GameObject explosion;
     public GameObject bullet;
     public float hp = 1;
+    public AudioClip jeb;
 
     private GameObject _player1;
     private GameObject _player2;
@@ -15,25 +16,14 @@ public class enemy : MonoBehaviour {
 
     private float _dist1;
     private float _dist2;
-
+    private AudioSource source;
     private float _targetTimer = 0;
     private bool _endTimer = false;
     private Vector2 _heading;
-   
 
-    void OnCollisionEnter2D(Collision2D collision)
+   void Start ()
     {
-        if (collision.gameObject.transform.tag == "bullet")
-        {
-            Instantiate(explosion, collision.gameObject.transform.position, Quaternion.identity);
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
-        }
-    }
-
-    // Use this for initialization
-    void Start ()
-    {
+        source = GetComponent<AudioSource>();
         _player1 = GameObject.Find("player_1");
         _player2 = GameObject.Find("player_2");
 
@@ -52,6 +42,20 @@ public class enemy : MonoBehaviour {
         
 
 	}
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.transform.tag == "bullet")
+        {
+            source.PlayOneShot(source.clip);
+            Instantiate(explosion, collision.gameObject.transform.position, Quaternion.identity);
+            Destroy(collision.gameObject);
+            Destroy(gameObject, 1f);
+        }
+    }
+
+    // Use this for initialization
+    
 	
 	// Update is called once per frame
 	void Update () {
