@@ -9,6 +9,7 @@ public class player_1 : MonoBehaviour {
     [SerializeField]
     float vel = 5f;
 
+
     [SerializeField]
     GameObject bullet;
 
@@ -18,13 +19,15 @@ public class player_1 : MonoBehaviour {
     GameObject go;
     private Rigidbody2D _rb;
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
         _rb = gameObject.GetComponent<Rigidbody2D>();
         _rb.gravityScale = 0f;
     }
 	
 	// Update is called once per frame
 	void Update () {
+
         if (Input.GetKey(KeyCode.W)) _rb.velocity = new Vector3(_rb.velocity.x, vel, 0);
         if (Input.GetKeyUp(KeyCode.W)) _rb.velocity = new Vector3(_rb.velocity.x, 0, 0);
 

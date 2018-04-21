@@ -21,8 +21,8 @@ public class spawning : MonoBehaviour {
 		
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	
+	void FixedUpdate () {
         if(t!=0)
         {
             t--;

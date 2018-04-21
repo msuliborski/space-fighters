@@ -9,8 +9,18 @@ public class enemy : MonoBehaviour {
 
     [SerializeField]
     float hp = 1;
-	// Use this for initialization
-	void Start () {
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.transform.tag == "bullet")
+        {
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
+    }
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
