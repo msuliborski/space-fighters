@@ -59,7 +59,6 @@ public class line : MonoBehaviour
 
     void handleGameEnd (){
         gameEnded = true;
-        
     }
 
 }

@@ -57,7 +57,7 @@ public class players : MonoBehaviour
             Destroy(collision.gameObject);
             hp -= 10;
 
-            if (hp == 0) gameObject.SetActive(false);
+            if (hp == 0) Destroy(gameObject);
         }
         else if (collision.gameObject.transform.tag == "bullet")
         {
@@ -67,7 +67,7 @@ public class players : MonoBehaviour
             Destroy(collision.gameObject);
             hp -= 5;
 
-            if (hp == 0) gameObject.SetActive(false);
+            if (hp == 0) Destroy(gameObject);
         }
     }
 
@@ -80,10 +80,13 @@ public class players : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
         source = GetComponent<AudioSource>();
+<<<<<<< HEAD
         //transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
 
+=======
+        
+>>>>>>> 835ea75671f967b73462eb519f76a49cb39d0045
         _rb = gameObject.GetComponent<Rigidbody2D>();
         _rb.gravityScale = 0f;
         _rb.isKinematic = true;
@@ -97,22 +100,22 @@ public class players : MonoBehaviour
         backgroundOffsetX = background.GetComponent<MeshCollider>().transform.position.x;
         backgroundOffsetY = background.GetComponent<MeshCollider>().transform.position.y;
 
-        instPoint.transform.position = new Vector2(_rb.transform.position.x + playerWidth, _rb.transform.position.y);
+        instPoint.transform.position = new Vector2(_rb.transform.position.x + playerWidth + bulletWidth, _rb.transform.position.y);
         
         if (playerNumber)
         {
             upKey = KeyCode.W;
             downKey = KeyCode.S;
-            leftKey = KeyCode.D; // XD
-            rightKey = KeyCode.A; // XD
+            leftKey = KeyCode.D;
+            rightKey = KeyCode.A;
             fireKey = KeyCode.T;
         }
         else
         {
             upKey = KeyCode.UpArrow;
             downKey = KeyCode.DownArrow;
-            leftKey = KeyCode.RightArrow; // XD
-            rightKey = KeyCode.LeftArrow; // XD
+            leftKey = KeyCode.RightArrow;
+            rightKey = KeyCode.LeftArrow;
             fireKey = KeyCode.Period;
         }
     }
