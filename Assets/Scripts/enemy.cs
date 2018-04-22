@@ -28,12 +28,15 @@ public class enemy : MonoBehaviour
     {
         if (collision.gameObject.transform.tag == "bullet")
         {
-            source.PlayOneShot(source.clip);
-            Instantiate(explosion, collision.gameObject.transform.position, Quaternion.identity);
             Destroy(collision.gameObject);
             hp--;
-            if (hp == 0) gameObject.SetActive(false);
-            Debug.Log("c'kurwozaury");
+            if (hp == 0)
+            {
+                source.PlayOneShot(source.clip);
+                gameObject.SetActive(false);
+                Instantiate(explosion, collision.gameObject.transform.position, Quaternion.identity);
+            }
+            
         }
     }
 
