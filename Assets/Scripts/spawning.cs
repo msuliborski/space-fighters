@@ -57,25 +57,28 @@ public class spawning : MonoBehaviour {
 	
 	
 	void FixedUpdate () {
-        if (lineObject.transform.position.x > 150 || lineObject.transform.position.x < 75)
-        {
-            if (timerEnemies != 0)
+        if(Input.anyKey) PlayerPrefs.SetInt("gameFrozen", 0);
+        if(PlayerPrefs.GetInt("gameFrozen") == 0){
+            if (lineObject.transform.position.x > 150 || lineObject.transform.position.x < 75)
             {
-                timerEnemies--;
+                if (timerEnemies != 0)
+                {
+                    timerEnemies--;
+                }
+                else
+                {
+                    if (!line.gameEnded) Spawn();
+                    timerEnemies = spawnEnemiesRate;
+                }
             }
             else
             {
-                if (!line.gameEnded) Spawn();
-                timerEnemies = spawnEnemiesRate;
-            }
-        }
-        else
-        {
-            timerAsteorids--;
-            if (timerAsteorids == 0)
-            {
-                timerAsteorids = spawnAsteroidsRate;
-                if (!line.gameEnded) SpawnAsteroids();
+                timerAsteorids--;
+                if (timerAsteorids == 0)
+                {
+                    timerAsteorids = spawnAsteroidsRate;
+                    if (!line.gameEnded) SpawnAsteroids();
+                }
             }
         }
 	}

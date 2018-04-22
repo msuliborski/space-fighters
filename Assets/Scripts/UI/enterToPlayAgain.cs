@@ -8,10 +8,10 @@ public class enterToPlayAgain : MonoBehaviour {
 	void Update () {
 		
 		if (Input.GetKeyDown(KeyCode.Return)){
-        	PlayerPrefs.SetInt("currentLevel", 1);
-			line.gameEnded = false;
 			PlayerPrefs.SetInt("gameFrozen", 1);
+			line.gameEnded = false;
 			SceneManager.LoadScene("Scenes/game-scene");
+			
 		}
 	}
 }

@@ -25,6 +25,8 @@ public class line : MonoBehaviour
 
     private AudioSource source;
 
+    public static float distanceToFinish = 0;
+
     //bool gameEnded = spawner.gameEnded;
 
     // Use this for initialization
@@ -35,7 +37,7 @@ public class line : MonoBehaviour
         player_1 = GameObject.Find("player_1");
         player_2 = GameObject.Find("player_2");
 
-        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(vel, 0, 0);
+        
         player_1Wins_sprite.SetActive(false);
         player_2Wins_sprite.SetActive(false);
         noOneWins_sprite.SetActive(false);
@@ -44,7 +46,6 @@ public class line : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if(Input.anyKey) PlayerPrefs.SetInt("gameFrozen", 0);
         if(PlayerPrefs.GetInt("gameFrozen") == 0){
             //Debug.Log("currentLevel: " + PlayerPrefs.GetInt("currentLevel") + ", currentPlayer1Points: " + PlayerPrefs.GetInt("currentPlayer1Points") + ", currentPlayer2Points: " + PlayerPrefs.GetInt("currentPlayer2Points"));
@@ -53,6 +54,8 @@ public class line : MonoBehaviour
                 else if (player_1.transform.position.x >= transform.position.x) {Player_1Wins(); handleGameEnd ();}
                 else if (player_2.transform.position.x >= transform.position.x) {Player_2Wins(); handleGameEnd ();}
             }
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(vel, 0, 0);
+            distanceToFinish = transform.position.x + 8f;
         }
     }
 
