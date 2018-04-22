@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class line : MonoBehaviour
 {
-    
+    public IntVariable LevelCountVariable;
     
     [SerializeField]
     float vel = -5f;
@@ -44,12 +44,12 @@ public class line : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if(Input.anyKey) PlayerPrefs.SetInt("gameFrozen", 0);
         if(PlayerPrefs.GetInt("gameFrozen") == 0){
-            Debug.Log("currentLevel: " + PlayerPrefs.GetInt("currentLevel") + ", currentPlayer1Points: " + PlayerPrefs.GetInt("currentPlayer1Points") + ", currentPlayer2Points: " + PlayerPrefs.GetInt("currentPlayer2Points"));
+            //Debug.Log("currentLevel: " + PlayerPrefs.GetInt("currentLevel") + ", currentPlayer1Points: " + PlayerPrefs.GetInt("currentPlayer1Points") + ", currentPlayer2Points: " + PlayerPrefs.GetInt("currentPlayer2Points"));
             if (!gameEnded){
-                if (PlayerPrefs.GetInt("currentPlayer1Points") == 2 || PlayerPrefs.GetInt("currentPlayer2Points") == 2) ultimateGameOver();
-                else if (!player_1.active && !player_2.active) {noOne_Wins(); handleGameEnd ();}
+                if (!player_1.active && !player_2.active) {noOne_Wins(); handleGameEnd ();}
                 else if (player_1.transform.position.x >= transform.position.x) {Player_1Wins(); handleGameEnd ();}
                 else if (player_2.transform.position.x >= transform.position.x) {Player_2Wins(); handleGameEnd ();}
             }
