@@ -51,7 +51,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59de7896d2bbff440b0ba09d46c71c9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameEnded: 0
   enemy: {fileID: 1991248466259694, guid: 5ae34c79eef43714da09737dbdba61f0, type: 2}
   enemy_2: {fileID: 1791646707429400, guid: 145bf22145472bd478a5169f869a61ac, type: 2}
+  asteroid: {fileID: 1696176500331616, guid: a154342a32af26d468c24dc5f847e391, type: 2}
   vel: 5
-  spawnRate: 40
+  spawnEnemiesRate: 30
+  spawnAsteroidsRate: 30
+  lineObject: {fileID: 1647367207551146, guid: 9227daa0813fe0b49a5b71688df16f29, type: 2}
