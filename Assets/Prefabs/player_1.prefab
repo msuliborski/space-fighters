@@ -411,11 +411,19 @@ MonoBehaviour:
   skin3: {fileID: 21300000, guid: 17f7e641e3bf3b642890b5a68bcc6050, type: 3}
   skin4: {fileID: 21300000, guid: 360cd7489c3d2f5408f2eeb7cf628686, type: 3}
   skin5: {fileID: 21300000, guid: 5d5aa08aa562e9c4aa53292be8776e7c, type: 3}
-  anim1: {fileID: 9100000, guid: 01fb53c73c762224ba1301096cc149b4, type: 2}
-  anim2: {fileID: 9100000, guid: 9a843c01a5378834fb3408ef3cf3ffee, type: 2}
-  anim3: {fileID: 9100000, guid: 29500d505bed8b84f9fbae6ba8e1fb91, type: 2}
-  anim4: {fileID: 9100000, guid: c2161af19ca0334478cf677ea9b4e8e0, type: 2}
-  anim5: {fileID: 9100000, guid: b0c6c3976dcb3474eb5a7fc7b81952f9, type: 2}
+  skin6: {fileID: 0}
+  skin7: {fileID: 0}
+  skin8: {fileID: 0}
+  skin9: {fileID: 0}
+  anim1: {fileID: 9100000, guid: 56457b50395951c4b914da64f3c71b95, type: 2}
+  anim2: {fileID: 9100000, guid: 2b0e1e6fe2ecd194aa56858175d37cb2, type: 2}
+  anim3: {fileID: 9100000, guid: 5d44e8fd236266145a4cb17323b2b2ca, type: 2}
+  anim4: {fileID: 9100000, guid: 25f40ea0b5b56ae4a80882c145a0ad7a, type: 2}
+  anim5: {fileID: 9100000, guid: 503fc9d2fc699d24bbff5749b90e1ff8, type: 2}
+  anim6: {fileID: 9100000, guid: 503fc9d2fc699d24bbff5749b90e1ff8, type: 2}
+  anim7: {fileID: 9100000, guid: 503fc9d2fc699d24bbff5749b90e1ff8, type: 2}
+  anim8: {fileID: 9100000, guid: ad89788ac881499478538cda9a58cb43, type: 2}
+  anim9: {fileID: 9100000, guid: 80dd259f6916a44439831782738b47e3, type: 2}
   maxHP: 100
   HP: 100
   textHP: {fileID: 114659359477615282}

@@ -12,6 +12,9 @@ public class enterToPlayAgain : MonoBehaviour {
 			line.gameEnded = false;
 			SceneManager.LoadScene("Scenes/game-scene");
 			
+			
 		}
+
+		
 	}
 }

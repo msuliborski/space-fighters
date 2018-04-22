@@ -12,6 +12,10 @@ public class players : MonoBehaviour
 	public Sprite skin3;
     public Sprite skin4;
     public Sprite skin5;
+    public Sprite skin6;
+    public Sprite skin7;
+    public Sprite skin8;
+    public Sprite skin9;
 
 
     private Animator animator; 
@@ -20,6 +24,10 @@ public class players : MonoBehaviour
 	public RuntimeAnimatorController anim3;
     public RuntimeAnimatorController anim4;
     public RuntimeAnimatorController anim5;
+    public RuntimeAnimatorController anim6;
+    public RuntimeAnimatorController anim7;
+    public RuntimeAnimatorController anim8;
+    public RuntimeAnimatorController anim9;
 
     public float maxHP = 100f;
     public float HP = 100f;
@@ -50,7 +58,7 @@ public class players : MonoBehaviour
     public float backgroundOffsetX;
     public float backgroundOffsetY;
 
-    int r, a, b;
+    int r, skin;
 
     GameObject go;
     private Rigidbody2D _rb;
@@ -97,78 +105,68 @@ public class players : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        a = Random.Range(0, 5);
-        b = Random.Range(0, 5);
-        while (b == a) b = Random.Range(0, 2);
-
-        if (playerNumber)
-        {
-            switch (a)
-            {
-                case 0:
-                    {
-                        this.GetComponent<Animator>().runtimeAnimatorController = anim1;
-                       // this.GetComponent<SpriteRenderer>.
-                    }
-                    break;
-                case 1:
-                    {
-                        this.GetComponent<Animator>().runtimeAnimatorController = anim2;
-                    }
-                    break;
-                case 2:
-                    {
-                        this.GetComponent<Animator>().runtimeAnimatorController = anim3;
-                    }
-                    break;
-                case 3:
-                    {
-                        this.GetComponent<Animator>().runtimeAnimatorController = anim4;
-                    }
-                    break;
-                case 4:
-                    {
-                        this.GetComponent<Animator>().runtimeAnimatorController = anim5;
-                    }
-                    break;
-
-            }
-        }
-        else
-        {
-            switch (b)
-            {
-                case 0:
-                    {
-                        this.GetComponent<Animator>().runtimeAnimatorController = anim1;
-                    }
-                    break;
-                case 1:
-                    {
-                        this.GetComponent<Animator>().runtimeAnimatorController = anim2;
-                    }
-                    break;
-                case 2:
-                    {
-                        this.GetComponent<Animator>().runtimeAnimatorController = anim3;
-                    }
-                    break;
-                case 3:
-                    {
-                        this.GetComponent<Animator>().runtimeAnimatorController = anim4;
-                    }
-                    break;
-                case 4:
-                    {
-                        this.GetComponent<Animator>().runtimeAnimatorController = anim5;
-                    }
-                    break;
-            }
-        }
-        //spriteRenderer = GetComponent<SpriteRenderer>();
+        if(playerNumber) skin = PlayerPrefs.GetInt("player1skin");
+        else skin = PlayerPrefs.GetInt("player2skin");
 
 
         
+        switch (skin)
+        {
+            case 0:
+                {
+                    this.GetComponent<Animator>().runtimeAnimatorController = anim1;
+                    // this.GetComponent<SpriteRenderer>.
+                }
+                break;
+            case 1:
+                {
+                    this.GetComponent<Animator>().runtimeAnimatorController = anim2;
+                }
+                break;
+            case 2:
+                {
+                    this.GetComponent<Animator>().runtimeAnimatorController = anim3;
+                }
+                break;
+            case 3:
+                {
+                    this.GetComponent<Animator>().runtimeAnimatorController = anim4;
+                }
+                break;
+            case 4:
+                {
+                    this.GetComponent<Animator>().runtimeAnimatorController = anim5;
+                }
+                break;
+            case 5:
+                {
+                    this.GetComponent<Animator>().runtimeAnimatorController = anim6;
+                    // this.GetComponent<SpriteRenderer>.
+                }
+                break;
+            case 6:
+                {
+                    this.GetComponent<Animator>().runtimeAnimatorController = anim7;
+                }
+                break;
+            case 7:
+                {
+                    this.GetComponent<Animator>().runtimeAnimatorController = anim8;
+                }
+                break;
+            case 8:
+                {
+                    this.GetComponent<Animator>().runtimeAnimatorController = anim9;
+                }
+                break;
+        }
+        
+        
+        
+            //spriteRenderer = GetComponent<SpriteRenderer>();
+        
+
+
         source = GetComponent<AudioSource>();
         source_2 = GetComponent<AudioSource>();
         source.clip = jeb;
