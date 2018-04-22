@@ -17,7 +17,7 @@ public class Scroll : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (line.distanceToFinish >= 0) levelInfo.text = " FINISH IN: " + (int) line.distanceToFinish + "m";
+		if (line.distanceToFinish >= 1) levelInfo.text = " FINISH IN: " + (int) line.distanceToFinish + "m";
 		else levelInfo.text = "  ";
 		if(Input.anyKey) PlayerPrefs.SetInt("gameFrozen", 0);
         if(PlayerPrefs.GetInt("gameFrozen") == 0){

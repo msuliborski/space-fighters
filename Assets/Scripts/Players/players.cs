@@ -47,7 +47,7 @@ public class players : MonoBehaviour
     public GameObject BG;
 
     public AudioClip pju;
-    public AudioClip jeb;
+    
 
     public float playerWidth;
     public float playerHeight;
@@ -63,8 +63,7 @@ public class players : MonoBehaviour
     GameObject go;
     private Rigidbody2D _rb;
     private AudioSource source;
-    private AudioSource source_2;
-
+   
     KeyCode upKey;
     KeyCode downKey;
     KeyCode leftKey;
@@ -73,24 +72,24 @@ public class players : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        source.clip = jeb;
+        
         if (collision.gameObject.transform.tag == "enemy"){
             Instantiate(explosion, collision.gameObject.transform.position, Quaternion.identity);
-            source.PlayOneShot(jeb, 1f);
+            
             Destroy(collision.gameObject);
             HP -= 10;
             if (HP <= 0) dead();
         }
         else if (collision.gameObject.transform.tag == "bullet"){
             Instantiate(explosion, collision.gameObject.transform.position, Quaternion.identity);
-            source.PlayOneShot(jeb, 1f);
+            
             Destroy(collision.gameObject);
             HP -= 5;
             if (HP <= 0) dead();
         }
         else if (collision.gameObject.transform.tag == "asteroid"){
             Instantiate(explosion, collision.gameObject.transform.position, Quaternion.identity);
-            source.PlayOneShot(jeb, 1f);
+            
             Destroy(collision.gameObject);
             HP -= 20;
             if (HP <= 0) dead();
@@ -168,9 +167,9 @@ public class players : MonoBehaviour
 
 
         source = GetComponent<AudioSource>();
-        source_2 = GetComponent<AudioSource>();
-        source.clip = jeb;
-        source_2.clip = pju;
+        source = GetComponent<AudioSource>();
+        
+        source.clip = pju;
         _rb = gameObject.GetComponent<Rigidbody2D>();
         _rb.gravityScale = 0f;
         _rb.isKinematic = true;
@@ -230,7 +229,7 @@ public class players : MonoBehaviour
         {
             go = Instantiate(bullet, instPoint.transform.position, Quaternion.identity);
             go.GetComponent<Rigidbody2D>().velocity = vel* 1.5f * Vector2.right;
-            source_2.PlayOneShot(pju, 1f);
+            source.PlayOneShot(pju, 1f);
             Destroy(go, 3f);
         }
 

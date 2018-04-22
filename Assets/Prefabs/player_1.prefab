@@ -138,7 +138,7 @@ Transform:
   m_GameObject: {fileID: 1216687416131586}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.5, y: 3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1}
   m_Children:
   - {fileID: 4949171500527598}
   - {fileID: 224473251921124170}
@@ -387,7 +387,7 @@ Animator:
   m_GameObject: {fileID: 1216687416131586}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 01fb53c73c762224ba1301096cc149b4, type: 2}
+  m_Controller: {fileID: 9100000, guid: 107b8830a979fe14da69f29691c12a25, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -415,15 +415,15 @@ MonoBehaviour:
   skin7: {fileID: 0}
   skin8: {fileID: 0}
   skin9: {fileID: 0}
-  anim1: {fileID: 9100000, guid: 56457b50395951c4b914da64f3c71b95, type: 2}
-  anim2: {fileID: 9100000, guid: 2b0e1e6fe2ecd194aa56858175d37cb2, type: 2}
-  anim3: {fileID: 9100000, guid: 5d44e8fd236266145a4cb17323b2b2ca, type: 2}
-  anim4: {fileID: 9100000, guid: 25f40ea0b5b56ae4a80882c145a0ad7a, type: 2}
-  anim5: {fileID: 9100000, guid: 503fc9d2fc699d24bbff5749b90e1ff8, type: 2}
-  anim6: {fileID: 9100000, guid: 503fc9d2fc699d24bbff5749b90e1ff8, type: 2}
-  anim7: {fileID: 9100000, guid: 503fc9d2fc699d24bbff5749b90e1ff8, type: 2}
-  anim8: {fileID: 9100000, guid: ad89788ac881499478538cda9a58cb43, type: 2}
-  anim9: {fileID: 9100000, guid: 80dd259f6916a44439831782738b47e3, type: 2}
+  anim1: {fileID: 9100000, guid: d09dbbde267266e4cb32c7b64c0e119c, type: 2}
+  anim2: {fileID: 9100000, guid: 71e2f6d14665035498cf9937dd49fcb3, type: 2}
+  anim3: {fileID: 9100000, guid: bc3ddee05bf05ec40a5275a357a25874, type: 2}
+  anim4: {fileID: 9100000, guid: 80585b863c1531e49bd9134f0cc32860, type: 2}
+  anim5: {fileID: 9100000, guid: 9c170d8a40436e948ae3245682907f93, type: 2}
+  anim6: {fileID: 9100000, guid: 2b0e61effe8d52446a23d90cf64fdb0e, type: 2}
+  anim7: {fileID: 9100000, guid: 550f5ef723e80654092f6f27e535c01b, type: 2}
+  anim8: {fileID: 9100000, guid: cb19958218399004499c0fc5b11273f4, type: 2}
+  anim9: {fileID: 9100000, guid: 3739a00e0b24d304fbe083c1ee7d2abd, type: 2}
   maxHP: 100
   HP: 100
   textHP: {fileID: 114659359477615282}
@@ -435,7 +435,6 @@ MonoBehaviour:
   background: {fileID: 0}
   BG: {fileID: 0}
   pju: {fileID: 8300000, guid: 29c68e19f33365548926acda87c573f3, type: 3}
-  jeb: {fileID: 8300000, guid: cf8421acd8d124048a4fa21e05afff78, type: 3}
   playerWidth: 0
   playerHeight: 0
   bulletWidth: 0
@@ -480,7 +479,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 8149e2668df8e1e4f9d24e2a1105566f, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -705,6 +704,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 30}
+  m_AnchoredPosition: {x: 0, y: -5}
+  m_SizeDelta: {x: 300, y: 30}
   m_Pivot: {x: 0, y: 1}

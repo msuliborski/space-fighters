@@ -55,7 +55,14 @@ public class line : MonoBehaviour
                 else if (player_2.transform.position.x >= transform.position.x) {Player_2Wins(); handleGameEnd ();}
             }
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(vel, 0, 0);
-            distanceToFinish = transform.position.x + 8f;
+
+            if (player_1 && player_2)
+            {
+                float _dist1 = transform.position.x - player_1.transform.position.x;
+                float _dist2 = transform.position.x - player_2.transform.position.x;
+                if (_dist1 <= _dist2) distanceToFinish = transform.position.x - player_1.transform.position.x;
+                else distanceToFinish = transform.position.x - player_2.transform.position.x;
+            }
         }
     }
 
@@ -76,13 +83,6 @@ public class line : MonoBehaviour
 
     void handleGameEnd (){
         gameEnded = true;
-    }
-
-    void ultimateGameOver (){
-        gameEnded = true;
-		PlayerPrefs.SetInt("currentPlayer1Points", 0);
-		PlayerPrefs.SetInt("currentPlayer2Points", 0);
-        PlayerPrefs.SetInt("currentLevel", 1);
         PlayerPrefs.SetInt("gameFrozen", 1);
     }
 

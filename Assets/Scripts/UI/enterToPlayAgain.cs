@@ -5,17 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class enterToPlayAgain : MonoBehaviour {
 
-	void Update () {
-		
-		if (Input.GetKeyDown(KeyCode.Return)){
-			PlayerPrefs.SetInt("gameFrozen", 1);
-			line.gameEnded = false;
-			SceneManager.LoadScene("Scenes/game-scene");
-			drawChamp();
-			
-		}
-		
-	}
+	
 
 
 
@@ -45,6 +35,19 @@ public class enterToPlayAgain : MonoBehaviour {
     Combinations x;
     Combinations Player1, Player2;
 	// Use this for initialization
+
+
+	void Update () {
+		
+		if (Input.GetKeyDown(KeyCode.Return)){
+			PlayerPrefs.SetInt("gameFrozen", 1);
+			line.gameEnded = false;
+			PlayerPrefs.SetInt("gameFrozen", 0);
+			drawChamp();
+			SceneManager.LoadScene("Scenes/game-scene");
+		}
+		
+	}
 
     public void drawChamp(){
 
