@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 8149e2668df8e1e4f9d24e2a1105566f
+timeCreated: 1524388766
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Back to 1982
+  fontNames:
+  - Back to 1982
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

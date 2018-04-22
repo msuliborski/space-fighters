@@ -21,6 +21,13 @@ public class asteroid : MonoBehaviour {
             gameObject.SetActive(false);
             
         }
+        else if (collision.gameObject.transform.tag == "enemy")
+        {
+            source.PlayOneShot(source.clip);
+            Instantiate(explosion, collision.gameObject.transform.position, Quaternion.identity);
+            collision.gameObject.SetActive(false);
+
+        }
     }
 
 

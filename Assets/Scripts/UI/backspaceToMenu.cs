@@ -16,7 +16,6 @@ public class backspaceToMenu : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.Backspace)){
 			line.gameEnded = false;
 			PlayerPrefs.SetInt("gameFrozen", 1);
-        	PlayerPrefs.SetInt("currentLevel", 1);
 			SceneManager.LoadScene("Scenes/menu-scene");
 		}
 	}

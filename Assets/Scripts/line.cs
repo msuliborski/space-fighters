@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class line : MonoBehaviour
 {
-    
+    public IntVariable LevelCountVariable;
     
     [SerializeField]
     float vel = -5f;
@@ -25,6 +25,8 @@ public class line : MonoBehaviour
 
     private AudioSource source;
 
+    public static float distanceToFinish = 0;
+
     //bool gameEnded = spawner.gameEnded;
 
     // Use this for initialization
@@ -35,7 +37,7 @@ public class line : MonoBehaviour
         player_1 = GameObject.Find("player_1");
         player_2 = GameObject.Find("player_2");
 
-        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(vel, 0, 0);
+        
         player_1Wins_sprite.SetActive(false);
         player_2Wins_sprite.SetActive(false);
         noOneWins_sprite.SetActive(false);
@@ -46,12 +48,20 @@ public class line : MonoBehaviour
     {
         if(Input.anyKey) PlayerPrefs.SetInt("gameFrozen", 0);
         if(PlayerPrefs.GetInt("gameFrozen") == 0){
-            Debug.Log("currentLevel: " + PlayerPrefs.GetInt("currentLevel") + ", currentPlayer1Points: " + PlayerPrefs.GetInt("currentPlayer1Points") + ", currentPlayer2Points: " + PlayerPrefs.GetInt("currentPlayer2Points"));
+            //Debug.Log("currentLevel: " + PlayerPrefs.GetInt("currentLevel") + ", currentPlayer1Points: " + PlayerPrefs.GetInt("currentPlayer1Points") + ", currentPlayer2Points: " + PlayerPrefs.GetInt("currentPlayer2Points"));
             if (!gameEnded){
-                if (PlayerPrefs.GetInt("currentPlayer1Points") == 2 || PlayerPrefs.GetInt("currentPlayer2Points") == 2) ultimateGameOver();
-                else if (!player_1.active && !player_2.active) {noOne_Wins(); handleGameEnd ();}
+                if (!player_1.active && !player_2.active) {noOne_Wins(); handleGameEnd ();}
                 else if (player_1.transform.position.x >= transform.position.x) {Player_1Wins(); handleGameEnd ();}
                 else if (player_2.transform.position.x >= transform.position.x) {Player_2Wins(); handleGameEnd ();}
+            }
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(vel, 0, 0);
+
+            if (player_1 && player_2)
+            {
+                float _dist1 = transform.position.x - player_1.transform.position.x;
+                float _dist2 = transform.position.x - player_2.transform.position.x;
+                if (_dist1 <= _dist2) distanceToFinish = transform.position.x - player_1.transform.position.x;
+                else distanceToFinish = transform.position.x - player_2.transform.position.x;
             }
         }
     }
@@ -73,13 +83,6 @@ public class line : MonoBehaviour
 
     void handleGameEnd (){
         gameEnded = true;
-    }
-
-    void ultimateGameOver (){
-        gameEnded = true;
-		PlayerPrefs.SetInt("currentPlayer1Points", 0);
-		PlayerPrefs.SetInt("currentPlayer2Points", 0);
-        PlayerPrefs.SetInt("currentLevel", 1);
         PlayerPrefs.SetInt("gameFrozen", 1);
     }
 
