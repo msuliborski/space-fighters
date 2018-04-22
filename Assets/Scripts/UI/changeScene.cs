@@ -14,6 +14,7 @@ public class changeScene : MonoBehaviour {
 			PlayerPrefs.SetInt("gameFrozen", 1);
 			PlayerPrefs.SetInt("currentLevel", PlayerPrefs.GetInt("nextLevel"));
 			PlayerPrefs.SetInt("nextLevel", PlayerPrefs.GetInt("nextLevel")+1);
+			if (PlayerPrefs.GetInt("currentLevel") == 4) PlayerPrefs.SetInt("currentLevel", 1);
 			SceneManager.LoadScene("Scenes/game-scene");
 		}
 	}
