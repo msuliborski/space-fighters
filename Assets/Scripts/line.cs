@@ -44,10 +44,15 @@ public class line : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!gameEnded){
-            if (!player_1.active && !player_2.active) {noOne_Wins(); handleGameEnd ();}
-            else if (player_1.transform.position.x >= transform.position.x) {Player_1Wins(); handleGameEnd ();}
-            else if (player_2.transform.position.x >= transform.position.x) {Player_2Wins(); handleGameEnd ();}
+        if(Input.anyKey) PlayerPrefs.SetInt("gameFrozen", 0);
+        if(PlayerPrefs.GetInt("gameFrozen") == 0){
+            Debug.Log("currentLevel: " + PlayerPrefs.GetInt("currentLevel") + ", currentPlayer1Points: " + PlayerPrefs.GetInt("currentPlayer1Points") + ", currentPlayer2Points: " + PlayerPrefs.GetInt("currentPlayer2Points"));
+            if (!gameEnded){
+                if (PlayerPrefs.GetInt("currentPlayer1Points") == 2 || PlayerPrefs.GetInt("currentPlayer2Points") == 2) ultimateGameOver();
+                else if (!player_1.active && !player_2.active) {noOne_Wins(); handleGameEnd ();}
+                else if (player_1.transform.position.x >= transform.position.x) {Player_1Wins(); handleGameEnd ();}
+                else if (player_2.transform.position.x >= transform.position.x) {Player_2Wins(); handleGameEnd ();}
+            }
         }
     }
 
@@ -57,13 +62,25 @@ public class line : MonoBehaviour
     }
     void Player_1Wins(){
         player_1Wins_sprite.SetActive(true);
+		PlayerPrefs.SetInt("currentPlayer1Points", PlayerPrefs.GetInt("currentPlayer1Points")+1);
+        //PlayerPrefs.SetInt("currentLevel",  PlayerPrefs.GetInt("currentLevel")+1);
     }
     void Player_2Wins(){
         player_2Wins_sprite.SetActive(true);
+		PlayerPrefs.SetInt("currentPlayer2Points", PlayerPrefs.GetInt("currentPlayer2Points")+1);
+        //PlayerPrefs.SetInt("currentLevel",  PlayerPrefs.GetInt("currentLevel")+1);
     }
 
     void handleGameEnd (){
         gameEnded = true;
+    }
+
+    void ultimateGameOver (){
+        gameEnded = true;
+		PlayerPrefs.SetInt("currentPlayer1Points", 0);
+		PlayerPrefs.SetInt("currentPlayer2Points", 0);
+        PlayerPrefs.SetInt("currentLevel", 1);
+        PlayerPrefs.SetInt("gameFrozen", 1);
     }
 
 }

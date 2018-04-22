@@ -3,20 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class enterToLevel2 : MonoBehaviour {
+public class enterToPlayAgain : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}	
-	
-	// Update is called once per frame
 	void Update () {
+		
 		if (Input.GetKeyDown(KeyCode.Return)){
-			SceneManager.LoadScene("Scenes/level2-scene");
+        	PlayerPrefs.SetInt("currentLevel", 1);
 			line.gameEnded = false;
+			PlayerPrefs.SetInt("gameFrozen", 1);
+			SceneManager.LoadScene("Scenes/game-scene");
 		}
 	}
-
-
 }

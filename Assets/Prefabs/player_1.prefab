@@ -407,7 +407,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 100
   HP: 100
-  healthBarLength: 1
   textHP: {fileID: 114659359477615282}
   vel: 5
   playerNumber: 1

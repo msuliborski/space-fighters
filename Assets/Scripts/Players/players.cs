@@ -6,31 +6,34 @@ using UnityEngine.UI;
 public class players : MonoBehaviour
 {
 
+	/*private SpriteRenderer spriteRenderer; 
+	public Sprite skin1;
+	public Sprite skin2;
+	public Sprite skin3;
+
+	private Animator animator; 
+	public Animation anim1; 
+	public Animation anim2; 
+	public Animation anim3; */
     
     public float maxHP = 100f;
     public float HP = 100f;
-    public float healthBarLength = 1;
 
     private Transform healthBar;
 
     public Text textHP;
     
     public float vel = 5f;
-
     public bool playerNumber;
 
     public GameObject bullet;
-
     public GameObject instPoint;
-
     public GameObject explosion;
-
     public GameObject background;
 
     public GameObject BG;
 
     public AudioClip pju;
-
     public AudioClip jeb;
 
     public float playerWidth;
@@ -56,8 +59,7 @@ public class players : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.transform.tag == "enemy")
-        {
+        if (collision.gameObject.transform.tag == "enemy"){
             Instantiate(explosion, collision.gameObject.transform.position, Quaternion.identity);
             source.clip = jeb;
             source.PlayOneShot(source.clip, 1f);
@@ -65,8 +67,7 @@ public class players : MonoBehaviour
             HP -= 10;
             if (HP <= 0) dead();
         }
-        else if (collision.gameObject.transform.tag == "bullet")
-        {
+        else if (collision.gameObject.transform.tag == "bullet"){
             Instantiate(explosion, collision.gameObject.transform.position, Quaternion.identity);
             source.clip = jeb;
             source.PlayOneShot(source.clip, 1f);
@@ -74,8 +75,7 @@ public class players : MonoBehaviour
             HP -= 5;
             if (HP <= 0) dead();
         }
-        else if (collision.gameObject.transform.tag == "asteroid")
-        {
+        else if (collision.gameObject.transform.tag == "asteroid"){
             Instantiate(explosion, collision.gameObject.transform.position, Quaternion.identity);
             source.clip = jeb;
             source.PlayOneShot(source.clip, 1f);
@@ -93,6 +93,12 @@ public class players : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+
+        //spriteRenderer = GetComponent<SpriteRenderer>();
+        //animator = GetComponent<Animator>();
+
+
+
         source = GetComponent<AudioSource>();
         _rb = gameObject.GetComponent<Rigidbody2D>();
         _rb.gravityScale = 0f;
@@ -125,12 +131,9 @@ public class players : MonoBehaviour
             rightKey = KeyCode.LeftArrow;
             fireKey = KeyCode.Period;
         }
+    }
 
-
-        healthBarLength = 1;
-        healthBar = this.gameObject.transform.Find("healthBar");
-        healthBar.transform.localScale = new Vector3 (healthBarLength, healthBarLength/10, 1);
-        healthBar.transform.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + gameObject.transform.localScale.y/2 , gameObject.transform.position.z);
+    void setRandomSkin(){
 
     }
 
