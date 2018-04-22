@@ -19,14 +19,16 @@ public class spawning : MonoBehaviour {
     [SerializeField]
     float vel = 5;
 
+    bool firstIncrementOfRate = false;
+
     
-    public int spawnEnemiesRate = 30;
-    public int spawnAsteroidsRate = 30;
+    public int spawnEnemiesRate = 10;
+    public int spawnAsteroidsRate = 15;
     int timerEnemies = 5;
     int timerAsteorids = 5;
     public GameObject lineObject;
 
-    
+    bool incrementOfRate = false;
     
     enum enemies
     {
@@ -90,8 +92,27 @@ public class spawning : MonoBehaviour {
             transform.position = new Vector3(12f, Random.Range(-3.5f, 3.5f), 0);
             go = Instantiate(enemy, transform.position, Quaternion.identity);
         }
-        else if (lineObject.transform.position.x > 150 || lineObject.transform.position.x <75)
+        else if (lineObject.transform.position.x > 150)
         {
+            x = Random.Range(0, 2);
+            transform.position = new Vector3(12f, Random.Range(-3.5f, 3.5f), 0);
+            if (x == 0)
+            {
+                go = Instantiate(enemy, transform.position, Quaternion.identity);
+            }
+            else if (x == 1)
+            {
+                go = Instantiate(enemy_2, transform.position, Quaternion.identity);
+            }
+            Destroy(go, 5f);
+        }
+        else
+        {
+            if (!incrementOfRate)
+            {
+                incrementOfRate = true;
+                spawnEnemiesRate = 5;
+            }
             x = Random.Range(0, 2);
             transform.position = new Vector3(12f, Random.Range(-3.5f, 3.5f), 0);
             if (x == 0)
@@ -108,7 +129,7 @@ public class spawning : MonoBehaviour {
 
     void SpawnAsteroids()
     {
-        transform.position = new Vector2(Random.Range(3f, 12f), 6f);
+        transform.position = new Vector2(Random.Range(0f, 16f), 6f);
         go = Instantiate(asteroid, transform.position, Quaternion.identity);
     }
 }

@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 212827899335966878}
   - component: {fileID: 95127815513426024}
   - component: {fileID: 114397081657577862}
-  - component: {fileID: 114143929012026924}
   - component: {fileID: 82348400796755146}
+  - component: {fileID: 114147338604306808}
   m_Layer: 0
   m_Name: explosion
   m_TagString: Untagged
@@ -141,7 +141,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114143929012026924
+--- !u!114 &114147338604306808
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1629443127728368}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e493dd6138f26a469b61e30c24684e4, type: 3}
+  m_Script: {fileID: 11500000, guid: 71feebc19b78e2a4f987ea24b3ca8dac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   jeb: {fileID: 8300000, guid: cf8421acd8d124048a4fa21e05afff78, type: 3}
