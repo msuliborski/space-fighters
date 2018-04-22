@@ -137,7 +137,7 @@ MonoBehaviour:
   enemy_2: {fileID: 1791646707429400, guid: 145bf22145472bd478a5169f869a61ac, type: 2}
   asteroid: {fileID: 1696176500331616, guid: a154342a32af26d468c24dc5f847e391, type: 2}
   vel: 5
-  spawnEnemiesRate: 30
-  spawnAsteroidsRate: 30
+  spawnEnemiesRate: 10
+  spawnAsteroidsRate: 15
   lineObject: {fileID: 1647367207551146, guid: 9227daa0813fe0b49a5b71688df16f29, type: 2}
   music: {fileID: 8300000, guid: d7ce4ce0452b2cf49b966ad377ef08c2, type: 3}

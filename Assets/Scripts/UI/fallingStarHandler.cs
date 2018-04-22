@@ -16,7 +16,7 @@ public class fallingStarHandler : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		_rd.velocity = new Vector3 (-4.2f, -3, 0);
+		_rd.velocity = new Vector3 (-3.3f, -3, 0);
 		if (_rd.transform.position.y <= -25) _rd.transform.position = new Vector3(15, 10, 0);
 
 	}
