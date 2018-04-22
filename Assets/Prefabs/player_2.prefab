@@ -275,7 +275,7 @@ Animator:
   m_GameObject: {fileID: 1907014283329398}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9a843c01a5378834fb3408ef3cf3ffee, type: 2}
+  m_Controller: {fileID: 9100000, guid: 29500d505bed8b84f9fbae6ba8e1fb91, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -327,6 +327,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9feddbcddf421694a96079c5240001d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skin1: {fileID: 21300000, guid: 3ff0c57f7f701c54b9eea978a9b3a72a, type: 3}
+  skin2: {fileID: 21300000, guid: 8a653d8d7091a1b48b523dd6b3f7b84b, type: 3}
+  skin3: {fileID: 21300000, guid: 17f7e641e3bf3b642890b5a68bcc6050, type: 3}
+  skin4: {fileID: 21300000, guid: 360cd7489c3d2f5408f2eeb7cf628686, type: 3}
+  skin5: {fileID: 21300000, guid: 5d5aa08aa562e9c4aa53292be8776e7c, type: 3}
+  anim1: {fileID: 9100000, guid: 01fb53c73c762224ba1301096cc149b4, type: 2}
+  anim2: {fileID: 9100000, guid: 9a843c01a5378834fb3408ef3cf3ffee, type: 2}
+  anim3: {fileID: 9100000, guid: 29500d505bed8b84f9fbae6ba8e1fb91, type: 2}
+  anim4: {fileID: 9100000, guid: c2161af19ca0334478cf677ea9b4e8e0, type: 2}
+  anim5: {fileID: 9100000, guid: b0c6c3976dcb3474eb5a7fc7b81952f9, type: 2}
   maxHP: 100
   HP: 100
   textHP: {fileID: 114285971399885086}

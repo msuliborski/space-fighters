@@ -6,16 +6,21 @@ using UnityEngine.UI;
 public class players : MonoBehaviour
 {
 
-	/*private SpriteRenderer spriteRenderer; 
+	private SpriteRenderer spriteRenderer; 
 	public Sprite skin1;
 	public Sprite skin2;
 	public Sprite skin3;
+    public Sprite skin4;
+    public Sprite skin5;
 
-	private Animator animator; 
-	public Animation anim1; 
-	public Animation anim2; 
-	public Animation anim3; */
-    
+
+    private Animator animator; 
+	public RuntimeAnimatorController anim1; 
+	public RuntimeAnimatorController anim2; 
+	public RuntimeAnimatorController anim3;
+    public RuntimeAnimatorController anim4;
+    public RuntimeAnimatorController anim5;
+
     public float maxHP = 100f;
     public float HP = 100f;
 
@@ -45,7 +50,7 @@ public class players : MonoBehaviour
     public float backgroundOffsetX;
     public float backgroundOffsetY;
 
-    int r;
+    int r, a, b;
 
     GameObject go;
     private Rigidbody2D _rb;
@@ -93,9 +98,76 @@ public class players : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        a = Random.Range(0, 5);
+        b = Random.Range(0, 5);
+        while (b == a) b = Random.Range(0, 2);
 
-        //spriteRenderer = GetComponent<SpriteRenderer>();
-        //animator = GetComponent<Animator>();
+        if (playerNumber)
+        {
+            switch (a)
+            {
+                case 0:
+                    {
+                        this.GetComponent<Animator>().runtimeAnimatorController = anim1;
+                       // this.GetComponent<SpriteRenderer>.
+                    }
+                    break;
+                case 1:
+                    {
+                        this.GetComponent<Animator>().runtimeAnimatorController = anim2;
+                    }
+                    break;
+                case 2:
+                    {
+                        this.GetComponent<Animator>().runtimeAnimatorController = anim3;
+                    }
+                    break;
+                case 3:
+                    {
+                        this.GetComponent<Animator>().runtimeAnimatorController = anim4;
+                    }
+                    break;
+                case 4:
+                    {
+                        this.GetComponent<Animator>().runtimeAnimatorController = anim5;
+                    }
+                    break;
+
+            }
+        }
+        else
+        {
+            switch (b)
+            {
+                case 0:
+                    {
+                        this.GetComponent<Animator>().runtimeAnimatorController = anim1;
+                    }
+                    break;
+                case 1:
+                    {
+                        this.GetComponent<Animator>().runtimeAnimatorController = anim2;
+                    }
+                    break;
+                case 2:
+                    {
+                        this.GetComponent<Animator>().runtimeAnimatorController = anim3;
+                    }
+                    break;
+                case 3:
+                    {
+                        this.GetComponent<Animator>().runtimeAnimatorController = anim4;
+                    }
+                    break;
+                case 4:
+                    {
+                        this.GetComponent<Animator>().runtimeAnimatorController = anim5;
+                    }
+                    break;
+            }
+        }
+            //spriteRenderer = GetComponent<SpriteRenderer>();
+        
 
 
 
@@ -131,10 +203,6 @@ public class players : MonoBehaviour
             rightKey = KeyCode.LeftArrow;
             fireKey = KeyCode.Period;
         }
-    }
-
-    void setRandomSkin(){
-
     }
 
     // Update is called once per frame
