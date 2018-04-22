@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class enterToPlayAgain : MonoBehaviour {
+public class enterToLevel2 : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -13,8 +13,10 @@ public class enterToPlayAgain : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.Return)){
-			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+			SceneManager.LoadScene("Scenes/level2-scene");
 			line.gameEnded = false;
 		}
 	}
+
+
 }

@@ -63,7 +63,7 @@ public class players : MonoBehaviour
             source.PlayOneShot(source.clip, 1f);
             Destroy(collision.gameObject);
             HP -= 10;
-            if (HP <= 0) gameObject.SetActive(false);
+            if (HP <= 0) dead();
         }
         else if (collision.gameObject.transform.tag == "bullet")
         {
@@ -72,7 +72,7 @@ public class players : MonoBehaviour
             source.PlayOneShot(source.clip, 1f);
             Destroy(collision.gameObject);
             HP -= 5;
-            if (HP <= 0) gameObject.SetActive(false);
+            if (HP <= 0) dead();
         }
         else if (collision.gameObject.transform.tag == "asteroid")
         {
@@ -81,8 +81,13 @@ public class players : MonoBehaviour
             source.PlayOneShot(source.clip, 1f);
             Destroy(collision.gameObject);
             HP -= 20;
-            if (HP <= 0) gameObject.SetActive(false);
+            if (HP <= 0) dead();
         }
+    }
+
+    void dead(){
+        gameObject.SetActive(false);
+        _rb.transform.position = new Vector3(-50, -50, -50);
     }
 
     // Use this for initialization
