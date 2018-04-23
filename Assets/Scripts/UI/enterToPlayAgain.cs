@@ -4,13 +4,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class enterToPlayAgain : MonoBehaviour {
-
-	
-
-
-
-
-
 	public enum Combinations
     {
         TractorGekko,
@@ -42,7 +35,6 @@ public class enterToPlayAgain : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.Return)){
 			PlayerPrefs.SetInt("gameFrozen", 1);
 			line.gameEnded = false;
-			PlayerPrefs.SetInt("gameFrozen", 0);
 			drawChamp();
 			SceneManager.LoadScene("Scenes/game-scene");
 		}
