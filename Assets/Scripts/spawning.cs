@@ -22,8 +22,8 @@ public class spawning : MonoBehaviour {
     bool firstIncrementOfRate = false;
 
     
-    public int spawnEnemiesRate = 10;
-    public int spawnAsteroidsRate = 15;
+    public int spawnEnemiesRate = 25;
+    public int spawnAsteroidsRate = 17;
     int timerEnemies = 5;
     int timerAsteorids = 5;
     public GameObject lineObject;
