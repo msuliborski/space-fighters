@@ -17,7 +17,8 @@ public class Scroll : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		levelInfo.text = " Level: " + PlayerPrefs.GetInt("currentLevel");
+		if (line.distanceToFinish >= 1) levelInfo.text = " FINISH IN: " + (int) line.distanceToFinish + "m";
+		else levelInfo.text = "  ";
 		if(Input.anyKey) PlayerPrefs.SetInt("gameFrozen", 0);
         if(PlayerPrefs.GetInt("gameFrozen") == 0){
 			Vector2 offset = new Vector2(Time.time * scrollSpeed, 0);
