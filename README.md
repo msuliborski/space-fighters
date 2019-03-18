@@ -1,6 +1,9 @@
 # Space Fighters
 
-Simple 2-player game witch is mix of racing and shooting game. Ludum Dare 41 (2018)
+Simple 2-player game witch is mix of racing and shooting game. Ludum Dare 41 (2018)</br>
+
+<p align="center">
+  <img width="940" src="Assets/screens/1.png">
 
 
 ## Getting Started
