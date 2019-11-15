@@ -5,6 +5,9 @@ Simple 2-player game witch is mix of racing and shooting game. Ludum Dare 41 (20
   <img width="840" src="Screens/1.png"/>
 </p>
 
+### Download
+All releases of the game are avaliable on the github page in the [releases](https://github.com/msuliborski/space-fighters/releases) tab. 
+
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
 
